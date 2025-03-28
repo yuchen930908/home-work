@@ -1,0 +1,23 @@
+const int buttonPin = 7;     // 按鈕連接到數位腳位7
+const int ledPin = 13;       // LED連接到數位腳位13
+const int buzzerPin = 2;     // 蜂鳴器連接到數位腳位2
+
+int buttonState = 0;         // 變數用於讀取按鈕狀態
+
+void setup() {
+  pinMode(ledPin, OUTPUT);      // 設定LED腳位為輸出
+  pinMode(buzzerPin, OUTPUT);   // 設定蜂鳴器腳位為輸出
+  pinMode(buttonPin, INPUT);    // 設定按鈕腳位為輸入
+}
+
+void loop() {
+  buttonState = digitalRead(buttonPin); // 讀取按鈕狀態
+
+  if (buttonState == LOW) {            // 如果按鈕被按下
+    digitalWrite(ledPin, HIGH);        // 點亮LED
+    digitalWrite(buzzerPin, HIGH);     // 啟動蜂鳴器
+  } else {                             // 如果按鈕未被按下
+    digitalWrite(ledPin, LOW);         // 關閉LED
+    digitalWrite(buzzerPin, LOW);      // 關閉蜂鳴器
+  }
+}
